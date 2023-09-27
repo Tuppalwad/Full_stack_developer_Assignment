@@ -53,7 +53,7 @@ function Overlay() {
             <div className=" d-flex justify-content-center my-3 ">
                 <div className="overlay-editor">
                     <h4 className="">Edit Overlay</h4>
-                    <input className='input_box'
+                    <input className='input_box ms-2'
                         type="text"
                         placeholder="Content"
                         value={currentOverlay.content}
@@ -68,7 +68,7 @@ function Overlay() {
 
 
                     />
-                    <input className='input_box'
+                    <input className='input_box ms-2'
                         type="number"
                         placeholder="Top"
                         value={currentOverlay.position.top}
@@ -85,7 +85,7 @@ function Overlay() {
                         }
 
                     />
-                    <input className='input_box'
+                    <input className='input_box ms-2'
                         type="number"
                         placeholder="Left"
                         value={currentOverlay.position.left}
@@ -103,7 +103,7 @@ function Overlay() {
 
                     />
                     {
-                        checkupdate ? (<button
+                        checkupdate ? (<button className='ms-2'
                             onClick={setupdatedData}
                             style={{
                                 width: "160px",
@@ -121,7 +121,7 @@ function Overlay() {
 
                         )
                             : (
-                                <button
+                                <button className='ms-2'
                                     onClick={handleOverlaySave}
                                     style={{
                                         width: "160px",

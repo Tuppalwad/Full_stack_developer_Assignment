@@ -83,13 +83,13 @@ const LiveStream = () => {
           onChange={handleInputChange}
         />
         <button
-          className="btn  btn-success buttons-play-pause"
+          className="btn  btn-success buttons-play-pause ms-2"
           onClick={handlePlay}
         >
           Play
         </button>
         <button
-          className="btn btn-danger buttons-play-pause"
+          className="btn btn-danger buttons-play-pause ms-2"
           onClick={handlePause}
         >
           Pause
