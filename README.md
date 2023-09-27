@@ -34,7 +34,7 @@
 1. Clone this repository:
 
 ```bash
-git clone https://github.com/yourusername/full-stack-developer-project.git
+git clone https://github.com/Tuppalwad/Full_stack_developer_Assignment.git
 cd full-stack-developer-project
 
 ```
