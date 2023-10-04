@@ -3,6 +3,7 @@ from flask_cors import CORS, cross_origin
 from flask import jsonify
 from connection import get_mongodb_connection
 import os
+from bson import ObjectId
 app = Flask(__name__)
 CORS(app, support_credentials=True)
 
@@ -36,42 +37,39 @@ def update_overlay():
     try:
         db_connection = get_mongodb_connection()
         overlay_collection = db_connection.Overlay
-        data= request.get_json() 
+        data = request.get_json()
         top = data['top']
         left = data['left']
 
-        print(top,left,data['content'])
+        print(top, left, data['content'],data['id'])
         overlay = overlay_collection.find_one(
-            {
-               "content": data['content'],
-            }
-        )
+    {
+        "_id": ObjectId(data['id'])
+    }
+    )
+        print(overlay)
         if overlay:
             overlay_collection.update_one(
                 {
-                    "content": data['content'],
+                    "_id": ObjectId(data['id'])
                 },
                 {
                     "$set": {
                         "content": data['content'],
                         "position": {
                             "top": data['top'],
-                            "left": data['left']
+                            "left":data['left']
                         }
-                        
                     }
                 }
             )
             return jsonify({"success": "Overlay updated successfully"})
-        else:   
+        else:
             return jsonify({"error": "Overlay not found"})
-        
-
 
     except Exception as e:
         print(e)
         return jsonify({"error": "Error in update_overlay"})
-    
 
 @app.route('/add_overlay', methods=['POST'])
 def add_overlay():

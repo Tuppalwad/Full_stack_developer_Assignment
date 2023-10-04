@@ -16,6 +16,7 @@ function DataProvider(props) {
     const [checkupdate, setCheckupdate] = useState(false);
     const [refresh, setRefresh] = useState(false);
     useEffect(() => {
+
         try {
             fetch('http://localhost:5000/get_overlay', {
                 method: 'GET',
@@ -51,7 +52,9 @@ function DataProvider(props) {
 
 
     const setupdatedData = () => {
+        console.log(currentOverlay._id)
         const update = {
+            id: currentOverlay._id,
             content: currentOverlay.content,
             top: parseInt(currentOverlay.position.top),
             left: parseInt(currentOverlay.position.left),

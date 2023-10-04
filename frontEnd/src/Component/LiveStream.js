@@ -24,7 +24,7 @@ const LiveStream = () => {
     setCheckupdate(true);
     setCurrentOverlay(overlay);
   };
-
+  const backendUrl = process.env.BACKEND_URL
   const handleOverlayDelete = (overlay) => {
     const position = {
       top: parseInt(overlay.position.top),
@@ -33,7 +33,7 @@ const LiveStream = () => {
     console.log(position);
 
     try {
-      fetch("http://localhost:5000/delete_overlay", {
+      fetch(backendUrl + "/delete_overlay", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -70,6 +70,8 @@ const LiveStream = () => {
       console.log(error);
     }
   };
+
+  console.log(overlays)
 
   return (
     <div className="container ">
